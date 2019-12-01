@@ -1,5 +1,5 @@
 let { createLogger, format, transports } = require('winston');
-let { combine, timestamp, label, printf } = format;
+let { combine, timestamp, label, printf, prettyPrint } = format;
  
 let logger = createLogger({
     format: combine(
@@ -7,9 +7,9 @@ let logger = createLogger({
         prettyPrint()
     ),
     transports: [
-      new winston.transports.Console(),
-      new winston.transports.File({ filename: 'combined.log' }),
-      new winston.transports.File({
+      new transports.Console(),
+      new transports.File({ filename: 'combined.log' }),
+      new transports.File({
         filename: 'error.log',
         level: 'error'
       })

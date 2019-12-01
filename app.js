@@ -1,4 +1,4 @@
-let app = require('./app');
+let app = require('./index');
 let logger = require('./utils/logger');
 
 let mongoose = require('mongoose');

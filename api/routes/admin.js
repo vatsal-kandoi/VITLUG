@@ -1,4 +1,4 @@
-var router = express.Router()
+var router = require('express').Router()
 
 var logger = require('../../utils/logger')
 var token = require('../../utils/createToken');
@@ -62,9 +62,9 @@ router.use('/quiz' ,(req, res, next) => {
     });
 })
 
-router.get('/quiz', admin.getQuiz(req, res));
-router.post('/quiz', admin.gradeQuiz(req, res));
-router.post('/quiz/selection', admin.selectUser(req, res));
-router.post('/quiz/question', question.add(req, res));
+router.get('/quiz', admin.getQuiz);
+router.post('/quiz', admin.gradeQuiz);
+router.post('/quiz/selection', admin.selectUser);
+router.post('/quiz/question', question.add);
 
 module.exports = router

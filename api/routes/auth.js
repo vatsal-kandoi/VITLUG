@@ -1,4 +1,4 @@
-var router = express.Router()
+var router = require('express').Router()
 
 var logger = require('../../utils/logger')
 var user = require('../controllers/auth');
@@ -11,7 +11,7 @@ router.use(function timeLog (req, res, next) {
     next()
 })
 
-router.post('/login', user.login(req, res));
-router.signup('/signup', user.signup(req, res));
+router.post('/login', user.login);
+router.post('/signup', user.signup);
 
 module.exports = router

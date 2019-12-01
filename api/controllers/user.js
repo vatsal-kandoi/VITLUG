@@ -64,13 +64,8 @@ class User {
         if (!err.regno || !err.password) {
             return err;
         }
-        user.findOne({regno: this.regno}, (err, res) => {
-            if (err) {
-                return {
-                    code: 500,
-                    message: 'Error finding user'
-                };
-            }
+        try {
+            let res = await user.findOne({regno: this.regno}).exec();
             if (res == null) {
                 return {
                     code: 404,
@@ -90,21 +85,20 @@ class User {
                     message: 'Password donot match'
                 }
             }
-            try {
-                let jwttoken = await token.generate(this.regno);
-                if (jwttoken.code) {
-                    return {
-                        token: result.token,
-                        code: 200
-                    }
-                }
-            } catch(err) {
+            let jwttoken = await token.generate(this.regno);
+            if (jwttoken.code) {
                 return {
-                    code: 500,
-                    message: 'Error generating token'
+                    token: jwttoken.token,
+                    code: 200
                 }
             }
-        });
+        }
+        catch(err) {
+            return {
+                code: 500,
+                message: 'Error finding user'
+            };
+        }
     }
     async signup() {
         let err = this.validateOnSignup();

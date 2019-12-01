@@ -1,0 +1,7 @@
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T18:28:03.424Z' }
+undefined
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T18:28:34.403Z' }

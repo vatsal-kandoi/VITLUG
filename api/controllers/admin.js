@@ -3,7 +3,7 @@ let quiz = require('../db/quiz');
 let user = require('../db/user');
 
 module.exports = {
-    getQuiz: (req, res) => {
+    getQuiz: async (req, res) => {
         try {
             if (req.query.quiz_id == undefined) {
                 let quizzes = await quiz.find({grade:0}).select('user _id').populate({path: 'user', select:'_id name regno'}).exec();
@@ -33,7 +33,7 @@ module.exports = {
             })
         }
     },
-    gradeQuiz: (req, res) => {
+    gradeQuiz: async (req, res) => {
         try {
             if (req.query.quiz_id == undefined) {
                 return res.json({
@@ -57,7 +57,7 @@ module.exports = {
             })
         }
     },
-    selectUser: (req, res) => {
+    selectUser: async (req, res) => {
         try {
             if (req.query.user_id == undefined) {
                 return res.json({

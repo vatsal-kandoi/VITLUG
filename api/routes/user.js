@@ -1,4 +1,4 @@
-var router = express.Router()
+var router = require('express').Router()
 
 var logger = require('../../utils/logger')
 
@@ -13,6 +13,6 @@ router.use(function timeLog (req, res, next) {
     next()
 })
 
-router.get('/status', user.auth(req, res, next), functions.selected(req, res));
+router.get('/status', user.auth, functions.selected);
 
 module.exports = router
