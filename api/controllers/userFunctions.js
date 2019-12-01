@@ -179,11 +179,19 @@ module.exports = {
             if (user == null) {
                 throw Error('Error finding user');
             }
+            if (user.quiz == null) {
+                return res.json({
+                    code: 200,
+                    success: false,
+                    message: 'Quiz not started'
+                })
+            }
             let result = await quiz.getQuizDashboard(user.quiz);
             if (result.code != 200) {
                 throw Error('Error getting dashboard');
             }
             return res.json({
+                success: true,
                 message: 'Dashboard created',
                 ...result
             });

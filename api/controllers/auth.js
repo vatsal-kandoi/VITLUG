@@ -17,6 +17,7 @@ module.exports = {
             return res.json({
                 ...result,
                 code: 200,
+                success: false,
                 message: 'Pattern mismatch'
             });
         }
@@ -24,6 +25,7 @@ module.exports = {
         res.cookie('VITLUG',result.token,{ expires: new Date(Date.now() + 60*60*1000), httpOnly: true });
         return res.json({
             code: 200,
+            success: true,
             regno: req.body.regno
         });
     },
@@ -39,6 +41,7 @@ module.exports = {
             } else if(result.code == 500 && result.message == undefined) {
                 return res.json({
                     code: 200,
+                    success: false,
                     message: 'Pattern mismatch',
                     ...result
                 });
@@ -57,6 +60,7 @@ module.exports = {
             res.cookie('VITLUG',result.token,{ expires: new Date(Date.now() + 60*60*1000), httpOnly: true });
             return res.json({
                 code: 200,
+                success: true,
                 regno: result.regno
             });
         } catch (err) {
