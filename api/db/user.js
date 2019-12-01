@@ -4,7 +4,7 @@ let userSchema = new mongoose.Schema({
     name: {
         type: String
     },
-    regNo:{
+    regno:{
         type: String
     },
     email:{

@@ -9,7 +9,7 @@ let question = require('../controllers/questions');
 router.use(function timeLog (req, res, next) {
     logger.log({
         level: 'info',
-        message: `ACCESS: ${req.req.originalUrl}`
+        message: `ACCESS: ${req.originalUrl}`
     });
     next()
 })
@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
     if (req.body.username == 'admin' && req.body.password == process.env.PASSWORD) {
         token.generate('admin').then((result) => {
             res.header('X-Auth-Token', result);
-            res.cookie('VITLUG',result,{ expires: new Date(Date.now() + 60*60*1000), httpOnly: true });
+            res.cookie('VITLUG',result.token,{ expires: new Date(Date.now() + 60*60*1000), httpOnly: true });
             return res.json({
                 code: 200,
                 regno: 'admin'
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
         }); 
     }
 });
-router.use('/quiz' ,(req, res, next) => {
+router.use('*' ,(req, res, next) => {
     let jwttoken = req.cookies['VITLUG'];
     if (jwttoken == undefined) {
         return res.json({

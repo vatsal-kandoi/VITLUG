@@ -26,19 +26,19 @@ class User {
             regno: false,
             code: 500
         };
-        if (name.match(this.name)==null) {
-            error.name = true;
-        }
-        if (email.match(this.email)==null) {
+        // if (this.name.match(name)==null) {
+        //     error.name = true;
+        // }
+        if (this.email.match(email)==null) {
             error.email = true;
         }
-        if (phone.match(this.phone)==null) {
+        if (this.phone.match(phone)==null) {
             error.phone = true;
         }
-        if (password.match(this.password)==null) {
+        if (this.password.match(password)==null) {
             error.password = true;
         }
-        if (regno.match(this.regno)==null) {
+        if (this.regno.match(regno)==null) {
             error.regno = true;
         }
         return error;
@@ -51,17 +51,17 @@ class User {
             regno: false,
         };
 
-        if (password.match(this.password)==null) {
+        if (this.password.match(password)==null) {
             error.password = true;
         }
-        if (regno.match(this.regno)==null) {
+        if (this.regno.match(regno)==null) {
             error.regno = true;
         }
         return error;
     }
     async login() {
         let err = this.validateOnLogin();
-        if (!err.regno || !err.password) {
+        if (err.regno || err.password) {
             return err;
         }
         try {
@@ -89,7 +89,8 @@ class User {
             if (jwttoken.code) {
                 return {
                     token: jwttoken.token,
-                    code: 200
+                    code: 200,
+                    regno: res.regno
                 }
             }
         }
@@ -101,42 +102,49 @@ class User {
         }
     }
     async signup() {
-        let err = this.validateOnSignup();
-        if (!err.name || !err.regno || !err.phone || !err.password || !this.email) {
-            return err;
-        }
-        let passwordCheck = await passwordFunc.createPassword(this.password);
-        if (passwordCheck.code != 200) {
-            return {
-                code: 500,
-                message: 'Error creating password'
+        try {
+            let err = this.validateOnSignup();
+            if (err.name || err.regno || err.phone || err.password || err.email) {
+                return err;
             }
-        }
-        this.password = passwordCheck.password;
-        let createUser = new user({
-            name: this.name,
-            email: this.email,
-            phone: this.phone,
-            password: this.password,
-            regno: this.regno
-        });
-        return createUser.save().then((result) => {
-            if (result!=null) {
-                return token.generate(this.regno);
+            let passwordCheck = await passwordFunc.createPassword(this.password);
+            if (passwordCheck.code != 200) {
+                return {
+                    code: 500,
+                    message: 'Error creating password'
+                }
             }
-            throw Error('Error creating user');
-        }).then((result) => {
-            return {
-                token: result.token,
-                code: 200,
+            this.password = passwordCheck.password;
+            let createUser = new user({
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                password: this.password,
                 regno: this.regno
-            }
-        }).catch((err) => {
+            });
+            return createUser.save().then((result) => {
+                if (result!=null) {
+                    return token.generate(this.regno);
+                }
+                throw Error('Error creating user');
+            }).then((result) => {
+                return {
+                    token: result.token,
+                    code: 200,
+                    regno: this.regno
+                }
+            }).catch((err) => {
+                return {
+                    code: 500,
+                    message: 'Error creating user'
+                }
+            });
+        } catch (err) {
             return {
                 code: 500,
                 message: 'Error creating user'
             }
-        });
+        }
     }
 }
 

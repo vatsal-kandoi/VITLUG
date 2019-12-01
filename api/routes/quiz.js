@@ -6,7 +6,7 @@ var user = require('../controllers/auth');
 router.use(function timeLog (req, res, next) {
     logger.log({
         level: 'info',
-        message: `ACCESS: ${req.req.originalUrl}`
+        message: `ACCESS: ${req.originalUrl}`
     });
     next()
 })
