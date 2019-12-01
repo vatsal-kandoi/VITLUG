@@ -22,8 +22,11 @@ let userSchema = new mongoose.Schema({
         default: null
     },
     selected:{
-        type:Number
+        type:Number,
+        default: 0
     }
 });
+
+/** selected: 0 (not evaluated), 1(no), 2(yes) */
 
 module.exports = mongoose.model('user',userSchema);

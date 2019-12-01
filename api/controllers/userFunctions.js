@@ -199,5 +199,29 @@ module.exports = {
                 message: 'Error getting dashboard'
             });
         }
+    },
+    selected: async (req,res) => {
+        try {
+            let user = await User.findOne({regno: req.body.regno}).exec();
+            if (user == null) {
+                throw Error('Error finding user');
+            }
+            return res.json({
+                code: 200,
+                message: 'Status found',
+                status: user.selected
+            });
+        } catch(err) {
+            if (err.code == 500) {
+                return res.json({
+                    code: 500,
+                    message: 'Error getting status'
+                });
+            }
+            return res.json({
+                code: 500,
+                message: 'Error getting status'
+            });
+        }
     }
 }
