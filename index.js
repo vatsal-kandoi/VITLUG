@@ -12,13 +12,24 @@ let adminRouter = require('./api/routes/admin');
 
 let app = express();
 
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+app.use('/assets',express.static('assets'));
+
 app.use(cookieParser());
 app.use(helmet());
 app.use(compression());
 
 
 /** Render views */
+app.get('/admin', (req, res) => {
+    res.render('admin');
+})
+app.get('/admin/dashboard', (req, res) => {
+    res.render('admindashboard');
+})
+
 
 /** Routing */
 app.use('/api/auth', authRouter);
@@ -27,9 +38,7 @@ app.use('/api/user', userRouter)
 app.use('/api/admin', adminRouter);
 
 app.get('*', (req, res) => {
-    res.json({
-        error: 404
-    });
+    res.render('404');
 })
 
 module.exports = app;
