@@ -43,7 +43,7 @@ module.exports = {
             });
         });
     },
-    addByDomain: (quizId, domains) => {
+    addByDomain: (quizId, domains, questionId) => {
         return new Promise((resolve, reject) => {
             question.find({domain: { $in: domains }}, (err, res) => {
                 if (err || res == null) {
@@ -59,11 +59,11 @@ module.exports = {
                         answer: ''
                     });
                 }
-                quiz.findOne({_id: quizId}, (err, res) => {
+                quiz.findOne({$and:[{_id: quizId},{'resp.$.answer':''},{'resp.$.question':questionId}]}, (err, res) => {
                     if (err || res == null) {
                         return reject({
-                            error: 500,
-                            message: 'Error finding quiz'
+                            error: 401,
+                            message: 'Domains already selected'
                         });
                     }
                     let questions = res.resp;

@@ -85,6 +85,7 @@ module.exports = {
                 }
                 return res.json({
                     code:200, 
+                    success: true,
                     message: 'Saved answer'
                 });
             } catch (err) {
@@ -93,13 +94,18 @@ module.exports = {
                         code: 500,
                         message: 'Error getting question'
                     });
+                } else if(err.code == 401) {
+                    return res.json({
+                        code: 200,
+                        success: false,
+                        message: 'Cannot change domains'
+                    })
                 }
                 return res.json({
                     code: 500,
                     message: 'Error getting question'
                 });
             }
-            addDomainQuestions(req, res);
         } else {
             try {
                 let user = await User.findOne({regno: req.body.regno}).exec();
