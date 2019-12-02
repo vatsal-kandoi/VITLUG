@@ -768,3 +768,27 @@ undefined
 { level: 'info',
   message: 'Application is up...',
   timestamp: '2019-12-02T12:16:51.982Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T18:39:51.813Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin//quiz',
+  timestamp: '2019-12-02T18:39:54.072Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin/',
+  timestamp: '2019-12-02T18:40:06.012Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin//quiz',
+  timestamp: '2019-12-02T18:40:10.603Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T18:42:42.849Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T18:42:44.846Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T18:44:28.937Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T18:44:30.031Z' }
