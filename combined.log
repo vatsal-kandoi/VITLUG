@@ -294,3 +294,277 @@ undefined
 { level: 'info',
   message: 'Application is up...',
   timestamp: '2019-12-01T21:18:07.104Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:20:55.316Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz',
+  timestamp: '2019-12-01T21:20:56.592Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/create',
+  timestamp: '2019-12-01T21:21:32.889Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz',
+  timestamp: '2019-12-01T21:21:56.809Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:23:20.489Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:24:19.466Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:24:21.387Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:24:53.178Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:24:55.027Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:25:10.486Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:25:14.213Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:26:17.925Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:26:35.487Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:26:48.162Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:26:49.946Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:26:54.107Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:27:01.614Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:27:07.279Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-01T21:27:43.344Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:27:55.347Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:28:10.495Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:30:47.098Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:30:50.725Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:30:52.634Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:32:05.385Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:32:07.014Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:32:09.801Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:34:06.240Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:34:07.902Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:34:22.082Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:34:24.637Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:34:29.878Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:34:32.973Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:34:50.774Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:34:52.017Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:35:09.581Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz',
+  timestamp: '2019-12-01T21:35:31.947Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:35:58.143Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz',
+  timestamp: '2019-12-01T21:36:00.464Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42646564c883720927bf6',
+  timestamp: '2019-12-01T21:36:15.049Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de42675b67ba7378cc2788f',
+  timestamp: '2019-12-01T21:36:27.949Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de426e3b5e4d138a71a8e88',
+  timestamp: '2019-12-01T21:36:39.090Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin/quiz/question',
+  timestamp: '2019-12-01T21:37:30.665Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin/quiz/question',
+  timestamp: '2019-12-01T21:37:47.802Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin/',
+  timestamp: '2019-12-01T21:38:42.808Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/admin/quiz/question',
+  timestamp: '2019-12-01T21:39:13.255Z' }
+{ level: 'info',
+  message: 'Added question 5de4330164a0b25a39411d77',
+  timestamp: '2019-12-01T21:39:13.279Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/create',
+  timestamp: '2019-12-01T21:40:27.931Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/auth/login',
+  timestamp: '2019-12-01T21:40:47.811Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/create',
+  timestamp: '2019-12-01T21:40:56.981Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz',
+  timestamp: '2019-12-01T21:41:09.489Z' }
+{ level: 'info',
+  message:
+   'ACCESS: /api/quiz/question?question_id=5de4330164a0b25a39411d77',
+  timestamp: '2019-12-01T21:41:23.678Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:42:31.018Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:42:35.828Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-01T21:42:44.209Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-01T21:43:14.368Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-01T21:43:16.868Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:48:37.152Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:48:46.745Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/auth/login',
+  timestamp: '2019-12-02T06:49:05.527Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:49:10.172Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:50:32.188Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:50:39.753Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:50:41.526Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:52:47.153Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:52:49.178Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:53:13.003Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:53:15.231Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:54:03.138Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:54:04.352Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:54:21.514Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:54:34.028Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:54:45.907Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:54:48.020Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:54:59.231Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:55:29.554Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:55:32.360Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:56:10.804Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:56:12.665Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:56:24.540Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:56:50.660Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:56:51.786Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:57:14.363Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/question',
+  timestamp: '2019-12-02T06:57:46.478Z' }
+{ level: 'info',
+  message: 'Application is up...',
+  timestamp: '2019-12-02T06:58:54.292Z' }
+{ level: 'info',
+  message: 'ACCESS: /api/quiz/',
+  timestamp: '2019-12-02T06:58:56.097Z' }

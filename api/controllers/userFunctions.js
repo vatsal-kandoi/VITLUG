@@ -69,17 +69,24 @@ module.exports = {
         }
     },
     saveQuestion: async (req, res) => {
-        if (req.query.questionType == 'domain') {
+        if (req.body.questionType == 'domain') {
             try {
                 let user = await User.findOne({regno: req.body.regno}).exec();
                 if (user == null) {
                     throw Error('Error finding user');
                 }
-                req.body.quizId = user.quizId;
-                let save = await quiz.saveQuestion(req.user.quiz,req.body.question_id, req.body.answer)
+                let save = await quiz.saveQuestion(user.quiz,req.body.question_id, req.body.answer)
                 if (save.code != 200) {
                     throw new Error('Error saving the question');
                 }
+                let added = await quiz.addByDomain(user.quiz, req.body.answer.split(" "));
+                if (added.code != 200) {
+                    throw new Error('Error adding questions');
+                }
+                return res.json({
+                    code:200, 
+                    message: 'Saved answer'
+                });
             } catch (err) {
                 if (err.code == 500) {
                     return res.json({
@@ -92,15 +99,14 @@ module.exports = {
                     message: 'Error getting question'
                 });
             }
-            this.addDomainQuestions(req, res);
+            addDomainQuestions(req, res);
         } else {
             try {
                 let user = await User.findOne({regno: req.body.regno}).exec();
                 if (user == null) {
                     throw Error('Error finding user');
                 }
-                req.body.quizId = user.quizId;
-                let save = await quiz.saveQuestion(req.user.quiz,req.body.question_id, req.body.answer)
+                let save = await quiz.saveQuestion(user.quiz,req.body.question_id, req.body.answer)
                 if (save.code != 200) {
                     throw new Error('Error saving the question');
                 }
@@ -121,29 +127,6 @@ module.exports = {
                 });
             }
         }
-    },
-    addDomainQuestions: async (req, res) => {
-        try {
-            let added = await quiz.addByDomain(req.body.quizId, req.body.answer);
-            if (added.code != 200) {
-                throw new Error('Error adding questions');
-            }
-            return res.json({
-                code:200, 
-                message: 'Saved answer'
-            })
-        } catch (err) {
-            if (err.code == 500) {
-                return res.json({
-                    code: 500,
-                    message: 'Error getting question'
-                });
-            }
-            return res.json({
-                code: 500,
-                message: 'Error getting question'
-            });
-        }    
     },
     submitQuiz: async (req, res) => {
         try {

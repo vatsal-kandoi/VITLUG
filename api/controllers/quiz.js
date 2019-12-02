@@ -93,15 +93,15 @@ module.exports = {
                         message: 'Error finding questions'
                     });
                 }
-                let question = result.resp.map((val) => {
+                let question = result.resp.filter((val) => {
                     if ( val.question._id == questionId) {
                         return val;
                     }
                 });
                 return resolve({
                     code: 200,
-                    question: question.question,
-                    answer: question.answer
+                    question: question[0].question,
+                    answer: question[0].answer
                 });
             });
         });
@@ -135,6 +135,8 @@ module.exports = {
                     let retObj = {};
                     if (val.answer == "") {
                         retObj.answered = false;
+                    } else {
+                        retObj.answered = true;
                     }
                     retObj.question_id = val.question;
                     return retObj;
