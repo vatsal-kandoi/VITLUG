@@ -134,7 +134,7 @@ module.exports = {
             if (user == null) {
                 throw Error('Error finding user');
             }
-            let submit = await quiz.submitQuiz(quizId);
+            let submit = await quiz.submitQuiz(user.quiz);
             if (submit.code != 200) {
                 throw Error('Error submitting quiz');
             }

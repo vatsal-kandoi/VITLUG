@@ -6,7 +6,7 @@ module.exports = {
     getQuiz: async (req, res) => {
         try {
             if (req.query.quiz_id == undefined) {
-                let quizzes = await quiz.find({grade:0}).select('user _id').populate({path: 'user', select:'_id name regno'}).exec();
+                let quizzes = await quiz.find({grade:0}).select('user submitted _id').populate({path: 'user', select:'_id name regno'}).exec();
                 if (quizzes == null) {
                     throw new Error('Error getting quizzes');
                 }
@@ -16,17 +16,23 @@ module.exports = {
                     responses: quizzes
                 })
             } else {
-                let quizzes = await quiz.findOne({_id: req.query.quiz_id }).select('user resp _id').populate({path: 'user', select:'_id name regno'},{path:'resp.question',select:'question _id mcqOptions type domain domainDecider'}).exec();
+                let quizzes = await quiz.findOne({_id: req.query.quiz_id })
+                    .populate({path: 'user', select:'_id name regno'})
+                    .populate('resp.question')
+                    .exec();
+                    console.log(quizzes);
                 if (quizzes == null) {
                     throw new Error('Error getting quizzes');
                 }
                 return res.json({
                     code: 200,
                     message: 'Found quizzes',
+                    success: true,
                     response: quizzes
                 })
             }
         } catch(err) {
+            console.log(err);
             return res.json({
                 code: 500,
                 message: 'Error getting quizzes'
@@ -41,7 +47,7 @@ module.exports = {
                     message: 'Enter quiz id'                
                 })
             } else {
-                let quizzes = await quiz.findOneAndUpdate({_id: req.query.quiz_id },{grade: req.bod.grade}).exec();
+                let quizzes = await quiz.findOneAndUpdate({_id: req.query.quiz_id },{grade: req.body.grade}).exec();
                 if (quizzes == null) {
                     throw new Error('Error getting quizzes');
                 }
@@ -65,7 +71,7 @@ module.exports = {
                     message: 'Enter user id'                
                 })
             } else {
-                let User = await user.findOneAndUpdate({_id: req.query.user_id },{selected: req.bod.selected}).exec();
+                let User = await user.findOneAndUpdate({_id: req.query.user_id },{selected: req.body.selected}).exec();
                 if (User == null) {
                     throw new Error('Error getting quizzes');
                 }
@@ -75,6 +81,7 @@ module.exports = {
                 });
             }
         } catch(err) {
+            console.log(err);
             return res.json({
                 code: 500,
                 message: 'Error updating selection status'
