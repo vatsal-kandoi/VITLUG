@@ -26,7 +26,8 @@ module.exports = {
         return res.json({
             code: 200,
             success: true,
-            regno: req.body.regno
+            regno: req.body.regno,
+            name: req.body.name
         });
     },
     login: async (req, res) => {
@@ -61,7 +62,8 @@ module.exports = {
             return res.json({
                 code: 200,
                 success: true,
-                regno: result.regno
+                regno: result.regno,
+                name: result.name
             });
         } catch (err) {
             return res.json({
@@ -93,5 +95,34 @@ module.exports = {
                 message: 'Please login to your account'
             });
         });
+    },
+    authHome: async (req, res) => {
+        let jwttoken = req.cookies['VITLUG'];
+        if (jwttoken == undefined) {
+            return res.render('index');
+        }
+        try {
+            let result = await token.verify(jwttoken);
+            if (result.code !== 200 || result.expired == true) {
+                return res.render('index', {
+                    message: 'Please login'
+                });
+            }
+            let user = await User.findOne({regno: result.regno}).exec();
+            if (user == null) {
+                return res.render('index', {
+                    message: 'Please login'
+                });
+            }
+            return res.render({
+                message: `Logged in as ${user.name}`,
+                regno: user.regno
+            });
+        } catch (err) {
+            res.cookie('VITLUG','',{expires: Date.now()})
+            return res.render('index', {
+                message: 'Please login'
+            });
+        }
     }
 };

@@ -10,6 +10,10 @@ let quizRouter = require('./api/routes/quiz');
 let userRouter = require('./api/routes/user');
 let adminRouter = require('./api/routes/admin');
 
+let user = require('./api/controllers/auth');
+
+let adminAuth = require('./api/controllers/adminAuth.js');
+
 let app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -21,15 +25,16 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(compression());
 
+app.get('/', user.authHome);
 
 /** Render views */
-app.get('/admin', (req, res) => {
-    res.render('admin');
-})
-app.get('/admin/dashboard', (req, res) => {
+app.get('/admin', adminAuth.home);
+app.get('/admin/dashboard', adminAuth.general, (req, res) => {
     res.render('admindashboard');
 })
-
+app.get('/admin/dashboard/quiz', adminAuth.general, (req, res) => {
+    res.render('admindashboard');
+})
 
 /** Routing */
 app.use('/api/auth', authRouter);

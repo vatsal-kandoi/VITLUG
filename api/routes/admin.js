@@ -60,7 +60,7 @@ router.use('*' ,(req, res, next) => {
             message: 'Please login to your account'
         });
     });
-})
+});
 
 router.get('/quiz', admin.getQuiz);
 router.post('/quiz', admin.gradeQuiz);
