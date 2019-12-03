@@ -5,12 +5,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <form id="admin-signin">
-        <input id="username" placeholder="Username">
-        <input id="password" placeholder="Password" type="password">
-        <button type="submit">Submit</button>
-    </form>
-    <span id="error"></span>
+    <div class="container">
+        <div class="row">
+            <div style="margin-top: 100px;" class="col l4 offset-l4 m6 offset-m3">
+                <h5>Admin Signin</h5>
+                <form id="admin-signin">
+                    <input id="username" placeholder="Username">
+                    <input id="password" placeholder="Password" type="password">
+                    <button class="btn btn-primary col l12" style="font-weight: bold;" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+     <span id="error"></span>
     <script src="/assets/js/admin/admin.js"></script>
 </body>
 </html>

@@ -5,13 +5,25 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
-        <button id="quizzes">Get Quizzes</button>
-        <button id="users">Get Users</button>
-        <div id="quiz-view">
-            
+        <div class="container">
+            <div class="row">
+                <div style="margin-top: 50px;" class="col l4 offset-l4 m6 offset-m3">
+                        <button class="waves-effect waves-light btn" id="quizzes">Get Quizzes</button>
+                        <button class="waves-effect waves-light btn" id="users">Get Users</button>
+                </div>
+            </div>
         </div>
-        <div id="user-view">
 
+        <div style="margin-top: 30px;" class="container">
+            <div class="row">
+                <div id="quiz-view" class="col l6 offset-l3 m8 offset-m2">
+                </div>
+            </div>
+            <div class="row">
+                <div id="user-view" class="col l6 offset-l3 m8 offset-m2">
+
+                </div>
+            </div>
         </div>
         <script src="/assets/js/admin/dashboard.js"></script>
     </body>

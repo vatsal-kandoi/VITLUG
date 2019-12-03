@@ -7,20 +7,35 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col l4 offset-l4 m6 offset-m3">
-                    
+                <div class="col l6 m12 s12">
+                    <h5>User Details</h5>
+                    <div class="user-details">
+                        <div>
+                            Name: <span id="username"></span>
+                        </div>
+                        <div>
+                            Regno: <span id="regno"></span>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div id="submitted"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div>
-            <div id="username"></div>
-            <div id="regno"></div>
-            <div id="submitted"></div>
-            <div id="quiz"></div>
+        <div class="container" style="margin-top: 20px;">
+            <div class="row">
+                <div id="quiz" class="col l12 m12 s12"></div>
+            </div>
         </div>
-        <div>
-            <input id="enter-grade" placeholder="Enter grade">
-            <button id="grade">Submit grade</button>
+        <div class="container">
+            <div class="row">
+                <div class="col l4" style="display: flex; align-items: center;">
+                        <input id="enter-grade" placeholder="Enter grade">
+                        <button style="margin-left: 10px" class="btn btn-primary" id="grade">Submit grade</button>
+                </div>
+            </div>
         </div>
         <script src="/assets/js/admin/checking.js"></script>
     </body>

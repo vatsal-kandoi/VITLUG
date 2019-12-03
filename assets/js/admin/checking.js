@@ -9,19 +9,30 @@ xhttp.onreadystatechange = () => {
             try {
                 let x = JSON.parse(xhttp.responseText);
                 if (x.code == 200) {
-                    console.log(x);
-                    console.log(x.response)
                     document.getElementById('username').innerHTML = x.response.user.name;
                     document.getElementById('regno').innerHTML = x.response.user.regno;
-                    document.getElementById('submitted').innerHTML = x.response.submitted;
+                    if (x.response.submitted) {
+                        document.getElementById('submitted').innerHTML = "Submitted";
+                        document.getElementById('submitted').style.color = 'green';
+                    } else {
+                        document.getElementById('submitted').innerHTML = "Not submitted";
+                        document.getElementById('submitted').style.color = 'red';
+                    }
                     for(let i=0; i<x.response.resp.length;i++) {
                         if(x.response.resp[i].question.type == 'subjective') {
                             if (x.response.resp[i].answer == '') {
                                 x.response.resp[i].answer = 'No answer provided'
                             }
                             document.getElementById('quiz').innerHTML+=`
-                                <div>${x.response.resp[i].question.question}</div>
-                                <div>${x.response.resp[i].answer}</div>
+                                <div style="padding: 10px; border-bottom-style:solid; border-bottom-width: 0.5px;">
+                                        <div style="font-weight: bold;" class="">
+                                        <span style="font-size:18px;">Question</span>
+                                        <br>
+                                        ${x.response.resp[i].question.question}
+                                    </div>
+                                    <br>
+                                    <div>${x.response.resp[i].answer}</div>
+                                </div>
                             `;
                         } else {
                             let options = ``;
@@ -29,19 +40,24 @@ xhttp.onreadystatechange = () => {
                             let isSelected = [];
                             for (let j=0;j<x.response.resp[i].question.mcqOptions.length;j++) {
                                 if (selected.includes(x.response.resp[i].question.mcqOptions[j].option)) {
-                                    isSelected[j] = "selected"; // Class name
+                                    isSelected[j] = "color: green; font-weight: bold;"; // Class name
                                 } else {
                                     isSelected[j] = "";
                                 }
                             }
                             for (let j=0;j<x.response.resp[i].question.mcqOptions.length;j++) {
-                                options += `<div class="${isSelected[j]}">${x.response.resp[i].question.mcqOptions[j].option}</div>`;
+                                options += `<div style="${isSelected[j]}">${x.response.resp[i].question.mcqOptions[j].option}</div>`;
                             }
                             document.getElementById('quiz').innerHTML+=`
-                                <div>${x.response.resp[i].question.question}</div>
-                                <div>
-                                    <div>${options}</div>
+                            <div style="padding: 10px; border-bottom-style:solid; border-bottom-width: 0.5px;">
+                                    <div style="font-weight: bold;" class="">
+                                    <span style="font-size:18px;">Question</span>
+                                    <br>
+                                    ${x.response.resp[i].question.question}
                                 </div>
+                                <br>
+                                <div>${options}</div>
+                            </div>
                             `;
                         }
                     }
