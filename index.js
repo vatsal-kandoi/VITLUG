@@ -30,10 +30,10 @@ app.get('/', user.authHome);
 /** Render views */
 app.get('/admin', adminAuth.home);
 app.get('/admin/dashboard', adminAuth.general, (req, res) => {
-    res.render('admindashboard');
+    res.render('admin/admindashboard');
 })
 app.get('/admin/dashboard/quiz', adminAuth.general, (req, res) => {
-    res.render('admindashboard');
+    res.render('admin/checking');
 })
 
 /** Routing */

@@ -5,7 +5,7 @@ let user = require('../db/user');
 module.exports = {
     getQuiz: async (req, res) => {
         try {
-            if (req.query.quiz_id == undefined) {
+            if (req.query.quizId == undefined) {
                 let quizzes = await quiz.find({grade:0}).select('user submitted _id').populate({path: 'user', select:'_id name regno'}).exec();
                 if (quizzes == null) {
                     throw new Error('Error getting quizzes');
@@ -16,7 +16,7 @@ module.exports = {
                     responses: quizzes
                 })
             } else {
-                let quizzes = await quiz.findOne({_id: req.query.quiz_id })
+                let quizzes = await quiz.findOne({_id: req.query.quizId })
                     .populate({path: 'user', select:'_id name regno'})
                     .populate('resp.question')
                     .exec();
@@ -26,7 +26,7 @@ module.exports = {
                 }
                 return res.json({
                     code: 200,
-                    message: 'Found quizzes',
+                    message: 'Found quiz',
                     success: true,
                     response: quizzes
                 })
@@ -41,13 +41,13 @@ module.exports = {
     },
     gradeQuiz: async (req, res) => {
         try {
-            if (req.query.quiz_id == undefined) {
+            if (req.query.quizId == undefined) {
                 return res.json({
                     code: 400,
                     message: 'Enter quiz id'                
                 })
             } else {
-                let quizzes = await quiz.findOneAndUpdate({_id: req.query.quiz_id },{grade: req.body.grade}).exec();
+                let quizzes = await quiz.findOneAndUpdate({_id: req.query.quizId },{grade: req.body.grade}).exec();
                 if (quizzes == null) {
                     throw new Error('Error getting quizzes');
                 }
