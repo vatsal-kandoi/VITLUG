@@ -1,0 +1,138 @@
+body{
+	background-image:url('/assets/images/login.jpg');
+	background-attachment: fixed;
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+  	height:100%;
+  	margin:0;
+
+}
+
+.nav{
+	background-color: #494741;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+	height:25px;
+	color:white;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:15px;
+	/*padding-top:7px;*/
+}
+
+.nav i{
+	font-size:18px;
+}
+
+.navbarelement{
+	color:white;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:15px;
+	vertical-align:middle;
+}
+
+.els{
+	float:right;
+	padding-top: 5px;
+	padding-right:10px;
+}
+
+.loginbox{
+	/*width:25%;*/
+	width:280px;
+	margin-left:50px;
+	/*border:2px solid grey;*/
+	margin-top:100px;
+	border-radius:10px;
+	background-color:rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	padding:20px 10px;
+
+}
+
+.input{
+	width:70%;
+	border-radius:5px;
+	height:25px;
+	background-color:rgba(0,0,0,0.6);
+	box-shadow: 0px 0px 3px 0px rgba(255,255,255,1);
+	border:none;
+	color:white;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:17px;
+	padding:3px;
+
+}
+
+.nextarr{
+	font-size: 25px;
+    vertical-align: middle;
+	color:white;
+}
+
+.inphead{
+	color:white;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.show{
+	display:block;
+}
+
+.hide{
+	display:none;
+}
+
+.disp{
+	color:white;
+	font-family: 'Ubuntu', sans-serif;
+	margin:5px 0;
+	opacity: 0.7;
+}
+
+.choosefont{
+	color:white;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#choose{
+	width:280px;
+}
+
+#new, #exist, .choosehead{
+	border:2px solid transparent;
+	border-radius:5px;
+	padding:5px;
+	width:50%;
+}
+.opt{
+	cursor:pointer;
+}
+.opt i{
+	font-size: 25px;
+    vertical-align: middle;
+}
+
+
+#new:hover{
+	border:2px solid white;
+	border-radius:5px;
+	transition:1s;
+}
+
+#exist:hover{
+	border:2px solid white;
+	border-radius:5px;
+	transition:1s;
+}
+
+@media only screen and (max-width:400px){
+	.loginbox, #choose{
+		width:250px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+}
+
+i{
+	cursor:pointer;
+}

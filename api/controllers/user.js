@@ -35,9 +35,9 @@ class User {
         if (this.phone.match(phone)==null) {
             error.phone = true;
         }
-        if (this.password.match(password)==null) {
-            error.password = true;
-        }
+        // if (this.password.match(password)==null) {
+        //     error.password = true;
+        // }
         if (this.regno.match(regno)==null) {
             error.regno = true;
         }
@@ -51,9 +51,9 @@ class User {
             regno: false,
         };
 
-        if (this.password.match(password)==null) {
-            error.password = true;
-        }
+        // if (this.password.match(password)==null) {
+        //     error.password = true;
+        // }
         if (this.regno.match(regno)==null) {
             error.regno = true;
         }

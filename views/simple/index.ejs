@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/assets/css/loginstyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<title>VITLUG | Login</title>
+</head>
+<body>
+	<div class="nav">
+		<a href="#"><span class="navbarelement"><i class="material-icons">keyboard_arrow_left</i></span></a> <span class="navbarelement">&nbsp;&nbsp;&nbsp;Ubuntu Desktop</span>
+		<span id="time" class="navbarelement els"></span>
+		<i class="material-icons els">account_circle</i>
+		<i class="material-icons els">swap_vert</i>
+		<i class="material-icons els">mobile_friendly</i>
+		<i class="material-icons els">mail</i>
+		
+	</div>
+	<div id="choose" class="loginbox">
+		<p class="choosehead choosefont">Login</p>
+		<p id="new" onclick="newshow()" class="opt choosefont">New User<i class="material-icons">keyboard_arrow_right</i></p>
+		<p id="exist" onclick="existshow()" class="opt choosefont">Existing User<i class="material-icons">keyboard_arrow_right</i></p>
+	</div>
+
+	<div id="loginnew" class="loginbox hide">
+		<p id="disp1" class="disp"></p>
+		<p id="disp2" class="disp"></p>
+		<p id="disp3" class="disp"></p>
+		<p id="disp4" class="disp"></p>
+		<form>
+		<div id="inpblock1" class="show">
+		<p class="inphead">Registration Number</p>
+		<input id="inp1" class="input" title="17ABC0000" pattern="^1[0-9][A-Z]{3}[0-9]{4}$"  name="inputnew1" type="text"><i onclick="hide1()"class="material-icons nextarr">keyboard_arrow_right</i>
+		</div>
+
+		<div id="inpblock2" class="hide">
+		<p class="inphead">Name</p>
+		<input id="inp2" class="input" name="inputnew2" pattern="^.{1,}" type="text"><i onclick="hide2()"class="material-icons nextarr">keyboard_arrow_right</i>
+		</div>
+
+		<div id="inpblock3" class="hide">
+		<p class="inphead">Email Id</p>
+		<input id="inp3" class="input" title="name.name20XX@vitstudent.ac.in" pattern="^[a-zA-Z]{1,}.[a-zA-Z]{1,}20[0-9]{2}@vitstudent.ac.in$" name="inputnew3" type="text"><i onclick="hide3()"class="material-icons nextarr">keyboard_arrow_right</i>
+		</div>
+
+		<div id="inpblock4" class="hide">
+		<p class="inphead">Mobile Number</p>
+		<input id="inp4" class="input" name="inputnew4" title="XXXXXXXXXX" pattern="^[1-9]{1}[0-9]{9}$" type="text"><i onclick="hide4()"class="material-icons nextarr">keyboard_arrow_right</i>
+		</div>
+
+		<div id="inpblock5" class="hide">
+		<p class="inphead">Password</p>
+		<input id="inp5" class="input" name="inputnew5" pattern="^.{8,}" type="password"><i class="material-icons nextarr" onclick="submit();">keyboard_arrow_right</i>
+		</div>
+		</form>
+	</div>
+
+
+	<div id="loginexist" class="loginbox hide">
+		<p id="dispexist1" class="disp"></p>
+		<form>
+		<div id="inpblockexist1" class="show">
+		<p class="inphead">Registration Number</p>
+		<input id="inpexist1" class="input" name="inputexist1" title="17ABC0000" pattern="^1[0-9][A-Z]{3}[0-9]{4}$" type="text"><i onclick="hideexist1()"class="material-icons nextarr">keyboard_arrow_right</i>
+		</div>
+
+		<div id="inpblockexist2" class="hide">
+		<p class="inphead">Password</p>
+		<input id="inpexist2" class="input" name="inputexist2" type="password"><i class="material-icons nextarr" onclick="login();">keyboard_arrow_right</i>
+		</div>
+		</form>
+	</div>
+
+<script src="/assets/js/simple/login.js"></script>
+</body>
+</html>

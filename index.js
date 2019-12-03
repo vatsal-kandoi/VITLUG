@@ -25,7 +25,8 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(compression());
 
-app.get('/', user.authHome);
+app.get('/', user.authIndex);
+app.get('/home',user.authHome);
 
 /** Render views */
 app.get('/admin', adminAuth.home);

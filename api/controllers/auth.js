@@ -2,6 +2,7 @@
 
 let User = require('./user');
 let token = require('../../utils/createToken');
+let UserDB = require('../db/user');
 
 module.exports = {
     signup:async (req, res) => {
@@ -96,7 +97,7 @@ module.exports = {
             });
         });
     },
-    authHome: async (req, res) => {
+    authIndex: async (req, res) => {
         let jwttoken = req.cookies['VITLUG'];
         if (jwttoken == undefined) {
             return res.render('index');
@@ -108,7 +109,7 @@ module.exports = {
                     message: 'Please login'
                 });
             }
-            let user = await User.findOne({regno: result.regno}).exec();
+            let user = await UserDB.findOne({regno: result.regno}).exec();
             if (user == null) {
                 return res.render('index', {
                     message: 'Please login'
@@ -123,6 +124,66 @@ module.exports = {
             return res.render('index', {
                 message: 'Please login'
             });
+        }
+    },
+    authHome: async (req, res) => {
+        let jwttoken = req.cookies['VITLUG'];
+        if (jwttoken == undefined) {
+            if (req.query.type == 'simple') {
+                return res.render('simple/index');
+            } else {
+                return res.render('terminal/index');
+            }
+        }
+        try {
+            let result = await token.verify(jwttoken);
+            if (result.code !== 200 || result.expired == true) {
+                if (req.query.type == 'simple') {
+                    return res.render('simple/index',{
+                        message: 'Please login'
+                    });
+                } else {
+                    return res.render('terminal/index',{
+                        message: 'Please login'
+                    });
+                }
+            }
+            let user = await UserDB.findOne({regno: result.regno}).exec();
+            if (user == null) {
+                if (req.query.type == 'simple') {
+                    return res.render('simple/index',{
+                        message: 'Please login'
+                    });
+                } else {
+                    return res.render('terminal/index',{
+                        message: 'Please login'
+                    });
+                }
+            }
+            if (req.query.type == 'simple') {
+                return res.render('simple/index',{
+                    message: `Logged in as ${user.name}`,
+                    regno: user.regno
+                });
+            } else {
+                return res.render('terminal/index',{
+                    message: `Logged in as ${user.name}`,
+                    regno: user.regno
+                });
+            }
+        } catch (err) {
+            console.log(err);
+            res.cookie('VITLUG','',{maxAge: Date.now()})
+            if (req.query.type == 'simple') {
+                return res.render('simple/index',{
+                    message: 'Please login'
+                });
+            } else {
+                return res.render('terminal/index',{
+                    message: 'Please login'
+                });
+            }
+
         }
     }
 };
